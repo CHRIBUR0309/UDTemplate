@@ -1,0 +1,180 @@
+\ProvidesPackage{UDTemplate}[2020/08/24 v1.0]
+\RequirePackage{bxdpx-beamer}
+\renewcommand{\familydefault}{\sfdefault}
+\renewcommand{\kanjifamilydefault}{\gtdefault}
+\renewcommand{\baselinestretch}{1.3}
+\RequirePackage{amsmath,amssymb}
+\RequirePackage[OT1,T2A,X2,OT2,LGR,T1]{fontenc}
+\RequirePackage{lmodern,exscale}
+%\RequirePackage{newtxtext,newtxmath}
+%\RequirePackage{newpxtext,newpxmath}
+\RequirePackage[expert,deluxe]{otf}
+\RequirePackage[noalphabet,unicode]{pxchfon}
+\RequirePackage[prefernoncjk]{pxcjkcat}
+\cjkcategory{sym04,sym08,sym09,sym10,sym11,sym12,sym15,sym18,sym19,sym20,brai,sym33}{cjk}
+\RequirePackage[english,japanese]{pxbabel}
+\RequirePackage{mathrsfs,bm}
+\RequirePackage{tcolorbox}
+\tcbuselibrary{most}
+\RequirePackage[bigcode]{pxjahyper}
+\renewcommand{\UrlBreaks}{\do\:\do\/\do\-\do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X\do\Y\do\Z}
+\RequirePackage{colortbl}
+\RequirePackage{graphicx,xcolor}
+%
+\definecolor{MyCyan}{rgb}{0,1,1}
+\definecolor{MyBlue}{rgb}{0.2,0,1}
+\tcbset{%
+	width=\paperwidth,%
+	height=2zh,%
+	valign upper=center,%
+	valign lower=center,%
+	sidebyside,%
+	lower separated=false,%
+	sidebyside gap=0truemm,%
+	halign lower=flush right,%
+	colframe=MyCyan,%
+	colback=black,%
+	coltext=white,%
+	sharp corners=all,%
+	boxrule=-1pt,%
+	beforeafter skip=0truemm,%
+	leftright skip=0truemm,%
+	left=0truemm,%
+	right=0truemm,%
+	top=0truemm,%
+	bottom=0truemm,%
+	boxsep=0truemm}
+\newtcolorbox{titlepageblock}{%
+	width=8zw,%
+	height=3zh,%
+	split=0.5,%
+	sidebyside=false,%
+	middle=0truemm,%
+	halign upper=flush center,%
+	halign lower=flush center,%
+	colframe=MyBlue,%
+	boxrule=0.5truemm}
+\newtcolorbox{titlepagetitleblock}{%
+	height=8zh,%
+	sidebyside=false,%x
+	halign upper=flush center,%
+	colframe=MyBlue}
+\newtcolorbox{headerblock}{%
+	lefthand ratio=0.83,%
+	bottomrule=0.5truemm}
+\newtcolorbox{footerblock}{%
+	halign upper=flush center,%
+	lefthand ratio=0.78,%
+	toprule=0.5truemm}
+%
+\setbeamersize{text margin left=0truemm,text margin right=0pt}
+\usefonttheme[onlymath]{serif}
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{normal text}{fg=white,bg=black}
+\setbeamertemplate{title page}{%
+	\nointerlineskip
+	\vspace{1zh}
+	\begin{titlepageblock}
+		{\footnotesize\insertdate}
+		\tcblower
+		{\footnotesize\insertsubtitle}
+	\end{titlepageblock}
+	\vspace{1zh}
+	\begin{titlepagetitleblock}
+		{\Large\inserttitle}
+	\end{titlepagetitleblock}
+	\vspace{2zh}
+	{%
+		\raggedleft
+		\begin{titlepageblock}
+			{\small\insertinstitute}
+			\tcblower
+			{\small\insertauthor}
+		\end{titlepageblock}
+	}
+}
+\setcounter{tocdepth}{1}
+\setbeamercolor{section in toc}{fg=white,bg=black}
+\setbeamerfont{section in toc}{size=\normalsize}
+\setbeamercolor{frametitle}{fg=white,bg=black}
+\setbeamertemplate{frametitle}{%
+	\nointerlineskip
+	\begin{headerblock}
+		\insertframetitle
+		\tcblower
+		\insertframenumber/\inserttotalframenumber
+	\end{headerblock}
+}
+\setbeamerfont{frametitle}{size=\Large,series=\sffamily\bfseries}
+\addtobeamertemplate{frametitle}{}{\vspace{-0.8em}}
+\setbeamercolor{section in head/foot}{fg=white,bg=black}
+\setbeamercolor{institute in head/foot}{fg=white,bg=black}
+\setbeamertemplate{footline}{%
+	\begin{footerblock}
+		\insertsection
+		\tcblower
+		\insertshortinstitute
+	\end{footerblock}
+	\vskip0pt%
+}
+\setbeamercolor{item}{fg=MyCyan}
+\setbeamercolor{subitem}{fg=MyCyan}
+\setbeamercolor{description item}{fg=white,bg=black}
+\setbeamerfont{description item}{series=\sffamily\bfseries}
+\setbeamertemplate{itemize item}{●}
+\setbeamertemplate{itemize subitem}{○}
+\setbeamertemplate{itemize subsubitem}{・}
+\setbeamertemplate{description item}{\insertdescriptionitem　}
+\setbeamercolor{caption name}{fg=white,bg=black}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{　}
+\newcommand{\makeframe}[2]{%
+	\begin{frame}[t]{#1}
+		#2
+	\end{frame}%
+}
+\AtBeginDocument{
+	\abovedisplayskip=0truemm
+	\abovedisplayshortskip=0truemm
+	\belowdisplayskip=0truemm
+	\belowdisplayshortskip=0truemm
+}
+\setbeamerfont{footline}{size=\tiny,series=\sffamily\bfseries}
+\AtBeginSection[]{
+	
+	\setbeamercolor{section in toc}{fg=yellow,bg=black}
+	\setbeamerfont{section in toc}{series=\bfseries\sffamily}
+	\setbeamercolor{section in toc shaded}{fg=white,bg=black}
+	\setbeamerfont{section in toc shaded}{series=\normalfont}
+	\setbeamertemplate{section in toc shaded}[default][100]
+	\makeframe{目次}{\tableofcontents[currentsection]}
+}
+\newcommand{\backupbegin}{
+	\newcounter{framenumberappendix}
+	\setcounter{framenumberappendix}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+	\addtocounter{framenumberappendix}{-\value{framenumber}}
+	\addtocounter{framenumber}{\value{framenumberappendix}} 
+}
+%
+\arrayrulecolor{white}
+%
+\renewcommand{\emph}[1]{{\color[rgb]{1,1,0}\textgt{#1}}}
+\newcommand{\strongemph}[1]{{\color[rgb]{1,1,0}\textgt{\textbf{#1}}}}
+\renewcommand{\figurename}{図}
+\renewcommand{\tablename}{表}
+\newcommand{\ownitem}[2]{%
+	\setlength{\leftmargini}{1zw}%
+	\setlength{\leftmarginii}{1zw}%
+	\setlength{\leftmarginiii}{1zw}%
+	\setlength{\leftmarginiv}{1zw}%
+	\begin{#1}
+		\setlength{\topsep}{0truemm}%
+		\setlength{\itemsep}{0truemm}%
+		\setlength{\parskip}{0truemm}%
+		\setlength{\itemindent}{0truemm}%
+		\setlength{\labelsep}{0truemm}%
+		#2
+	\end{#1}%
+}

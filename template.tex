@@ -1,0 +1,86 @@
+\documentclass[uplatex,aspectratio=43,14pt,hyperref={bookmarksnumbered=true,bookmarksopen=true,hidelinks,breaklinks=true,pdfusetitle},dvipdfmx]{beamer}
+%
+\usepackage{UDTemplate}
+%
+\title{タイトルタイトルタイトルタイトルタイトル}
+\subtitle{サブタイトル}
+\author{名前}
+\institute[IKEDA Lab., Kyushu Univ.]{池田研究室}
+\date{yyyy/mm/dd}
+\begin{document}
+	{%
+		\setbeamertemplate{footline}{}
+		\makeframe{}{\titlepage}
+	}
+	\makeframe{目次}{\tableofcontents}
+	\section{導入}
+		\makeframe{導入1枚目}{%
+			次の等式は\emph{有名}である。
+			\begin{equation}
+				e^{i\theta}=\cos{\theta}+i\sin{\theta}
+			\end{equation}
+		}
+		\makeframe{導入2枚目}{%
+			次の方程式も\emph{有名}である。
+			\begin{align*}
+				&\nabla\cdot\bm{E}=\frac{\rho}{\varepsilon_0}\\
+				&\nabla\times\bm{E}=-{\frac{\partial\bm{B}}{\partial t}}\\
+				&\nabla\cdot\bm{B}=0\\
+				&\nabla\times\bm{B}=\mu_0{\left(\bm{j}+\varepsilon_0\frac{\partial\bm{E}}{\partial t}\right)}
+			\end{align*}
+			この連立1階偏微分方程式は電磁気学分野の基礎方程式である。
+		}
+	\section{本論}
+		\makeframe{本論1枚目}{
+			導入で示した式はそれぞれ次の名前で呼ばれている。覚えておくと何処かで役に立つ……かもしれない。
+			\ownitem{itemize}{
+				\item Eulerの等式
+				\item Maxwell方程式
+				\ownitem{enumerate}{
+					\item hoge
+					\item foo
+				}
+			}
+		}
+		\makeframe{本論2枚目}{
+			私が最も好きな定理は\strongemph{留数定理（residue theorem）}である。
+			\begin{theorem}
+				複素関数\(\displaystyle{f{\left(z\right)}}\)が正の向きを持つJordan曲線\(\displaystyle{C\subset\mathbb{C}}\)の上と内部で比較的良い性質を持つならば，
+				\begin{equation*}
+					\oint_{C}{f{\left(z\right)}\,dz}=2\pi i\sum_{k=1}^n{\operatorname{Res}{\left(f;\, z_k\right)}}
+				\end{equation*}
+				が成り立つ。
+			\end{theorem}
+		}
+	\section{まとめ}
+		\makeframe{結論}{
+			私は数学が大好きだ！
+		}
+	\section{おまけ①}
+		\makeframe{hogehoge}{
+			ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
+		}
+	\section{おまけ②}
+		\makeframe{foo}{
+			ああああああああああああああああああああああああああああああああああああああ
+
+			いいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいい
+		}
+	\appendix
+	\backupbegin
+	\section{\appendixname}
+		\makeframe{表の作り方}{
+			\begin{table}[btp]
+				\centering
+				\caption{これは表です。}
+				\label{tab:appendtable}
+				\begin{tabular}{lrr}\hline
+					& あ & い\\ \hline
+					0 & 1.36538 & 0.74289\\
+					1 & 5.84792 & 7.74682\\ \hline
+				\end{tabular}
+			\end{table}
+			表\ref{tab:appendtable}はこうやって作れるんだよ！
+		}
+	\backupend
+\end{document}
